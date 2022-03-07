@@ -7,6 +7,7 @@ const app = express()
 app.use('/places', require('./controllers/places'))
 
 app.get('/', function(req, res){
+    res.send('<h1>Home page</h1>')
     console.log('Hello World')
 })
 
