@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.send('Hello world home page')
 })
 
+app.get('/places', (req, res) =>{
+    res.render('index')
+})
+
 app.get('*', (req, res) => {
   res.render('error404')
 })
