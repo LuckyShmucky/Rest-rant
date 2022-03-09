@@ -25,7 +25,7 @@ As a reviewer I need a feature to post reviews so I can
 ### A Table Of CRUD Methods That We Are Going To Add
 
 | Method   | Path                |   Purpose                                   |
-| -------- |:-------------------:| -------------------------------------------:|
+| -------- |:-------------------:|:-------------------------------------------:|
 | GET      | /                   | Home page                                   |
 | Get      | /places             | Places index page                           |
 | POST     | /places             | Creates new place                           |
