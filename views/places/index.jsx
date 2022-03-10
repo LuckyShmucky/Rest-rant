@@ -18,6 +18,9 @@ function index (data) {
           <main>
               <h1>Places to Rant or Rave About</h1>
               {placesFormatted}
+              <a href="/">
+                <button className='btn-primary'>Go to Home Page</button>
+                </a>
           </main>
       </Def>
   )

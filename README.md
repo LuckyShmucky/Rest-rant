@@ -37,3 +37,7 @@ As a reviewer I need a feature to post reviews so I can
 | POST     | /places/:id/rant    | Create a comment about a particular place   |
 | DELETE   | /palces/:id/rantId  | Delete a rant about a particulare place     |
 | GET      |                     | 404 page (matches any route not defined)    |
+
+
+
+**TRY TO RESIZE IMAGES TO 420 BY 560 PXLS**
