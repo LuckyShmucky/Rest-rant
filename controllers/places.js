@@ -5,20 +5,34 @@ const places = require('../models/places.js')
 
 
 // router.use(express.json())
-
+//Display root places 
 router.get('/', (req, res) => {
   
     res.render('places/index', {
       places: places
     })
 })
-
+//Display new form
 router.get('/new', (req, res)=>{
   res.render('places/new')
 })
 
 
+//SHOW or Display
+router.get('/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/show', {place: places[id], id} )
+  }
+})
 
+  //CREATE
 router.post('/', (req, res) => {
   console.log(req.body)
   if (!req.body.pic) {
@@ -34,6 +48,22 @@ router.post('/', (req, res) => {
   places.push(req.body)
   res.redirect('/places')
 })
+
+  //DELETE 
+router.delete('/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    places.splice(id, 1)
+    res.redirect('/places')
+  }
+})
+
 
 //what this file is basically doing is 
 //it finds the index.jsx file (via places/index)
