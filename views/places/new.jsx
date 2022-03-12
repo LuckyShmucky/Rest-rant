@@ -1,14 +1,14 @@
 const React = require('react')
 const Def = require('/default.jsx')
 
-function New_form(){
+function Newform(){
 
     return(
         <Def>
         
                 <h1>Add A new Place</h1>
                
-                                <form  action="/places" method='POST'>
+                <form  action="/places" method='POST'>
                 <div className="form-group">
                     <label htmlFor="name">Place Name</label>
                     <input className="form-control w-25" type='text'
@@ -57,4 +57,4 @@ function New_form(){
 
 }
 
-module.exports = New_form
+module.exports = Newform

@@ -8,21 +8,19 @@ const places = require('../models/places.js')
 
 router.get('/', (req, res) => {
   
-    res.render('places/index' ,
-    // return places
-    {
-      router: places, 
-      title: 'Index page'
+    res.render('places/index', {
+      places: places
     })
 })
 
 router.get('/new', (req, res)=>{
-  res.render('new_form')
+  res.render('new')
 })
 
 
 //post is still pushing an undefined object to index
 router.post('/',  (req, res)=> {
+  console.log(req.body)
   places.push(req.body)
   res.send(places)
   
