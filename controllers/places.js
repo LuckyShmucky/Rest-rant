@@ -14,33 +14,26 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res)=>{
-  res.render('new')
+  res.render('places/new')
 })
 
 
-//post is still pushing an undefined object to index
-router.post('/',  (req, res)=> {
+
+router.post('/', (req, res) => {
   console.log(req.body)
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
   places.push(req.body)
-  res.send(places)
-  
+  res.redirect('/places')
 })
-
-// router.post('/', (req, res) => {
-//   console.log(req.body)
-//   if (!req.body.pic) {
-//     // Default image if one is not provided
-//     req.body.pic = 'http://placekitten.com/400/400'
-//   }
-//   if (!req.body.city) {
-//     req.body.city = 'Anytown'
-//   }
-//   if (!req.body.state) {
-//     req.body.state = 'USA'
-//   }
-//   places.push(req.body)
-//   res.redirect('/places')
-// })
 
 //what this file is basically doing is 
 //it finds the index.jsx file (via places/index)

@@ -1,11 +1,11 @@
 const React = require('react')
-const Def = require('/default.jsx')
+const Def = require('../default')
 
 function Newform(){
 
     return(
         <Def>
-        
+            <main>
                 <h1>Add A new Place</h1>
                
                 <form  action="/places" method='POST'>
@@ -51,7 +51,7 @@ function Newform(){
                          <div className='form-group'> 
                         <a href="/places">Go back to the index!</a>     
                         </div>       
-            
+            </main>
         </Def>
     )
 
