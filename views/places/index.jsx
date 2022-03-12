@@ -21,6 +21,11 @@ function index (data) {
               <a href="/">
                 <button className='btn-primary'>Go to Home Page</button>
                 </a>
+
+                <div className='backButton'>
+                        <a href="/places/new">Add a new place!</a>     
+                </div>       
+
           </main>
       </Def>
   )
