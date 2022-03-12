@@ -16,6 +16,10 @@ router.get('/', (req, res) => {
       }]
     res.render('places/index', {places})
 })
+
+router.get('/new', (req, res)=>{
+  res.render('places/new')
+})
 //what this file is basically doing is 
 //it finds the index.jsx file (via places/index)
 //and gives that file access to our places array.
