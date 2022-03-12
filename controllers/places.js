@@ -1,49 +1,48 @@
-const router = require('express').Router()
+const express = require('express')
+// const { append } = require('express/lib/response')
+const router = express.Router()
+const places = require('../models/places.js')
 
 
-let places = [{
-  name: 'In and Out',
-  city: 'San Diego',
-  state: 'CA',
-  cuisines: 'Burgers and Fries',
-  pic: '/images/InO.jpg'
-}, {
-  name: 'Coding Cake Cafe',
-  city: 'Phoenix',
-  state: 'AZ',
-  cuisines: 'Coffee, Bakery',
-  pic: 'http://placekitten.com/250/250'
-}]
-
-
+// router.use(express.json())
 
 router.get('/', (req, res) => {
-    // let places = [{
-    //     name: 'In and Out',
-    //     city: 'San Diego',
-    //     state: 'CA',
-    //     cuisines: 'Burgers and Fries',
-    //     pic: '/images/InO.jpg'
-    //   }, {
-    //     name: 'Coding Cake Cafe',
-    //     city: 'Phoenix',
-    //     state: 'AZ',
-    //     cuisines: 'Coffee, Bakery',
-    //     pic: 'http://placekitten.com/250/250'
-    //   }]
-    res.render('places/index', {places})
+  
+    res.render('places/index' ,
     // return places
+    {
+      router: places, 
+      title: 'Index page'
+    })
 })
 
 router.get('/new', (req, res)=>{
-  res.render('places/new')
+  res.render('new_form')
 })
 
-router.post('/new', (req, res)=> {
+
+//post is still pushing an undefined object to index
+router.post('/',  (req, res)=> {
   places.push(req.body)
   res.send(places)
-  // res.redirect('/places')
+  
 })
+
+// router.post('/', (req, res) => {
+//   console.log(req.body)
+//   if (!req.body.pic) {
+//     // Default image if one is not provided
+//     req.body.pic = 'http://placekitten.com/400/400'
+//   }
+//   if (!req.body.city) {
+//     req.body.city = 'Anytown'
+//   }
+//   if (!req.body.state) {
+//     req.body.state = 'USA'
+//   }
+//   places.push(req.body)
+//   res.redirect('/places')
+// })
 
 //what this file is basically doing is 
 //it finds the index.jsx file (via places/index)
