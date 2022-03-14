@@ -4,8 +4,14 @@ const Def = require('../default.jsx')
 function editForm (data) {
     return (
         <Def>
+            <head>
+                <link rel="stylesheet" href="../../style.css" />
+            </head>
           <main>
-                <h1>Edit {data.place.name}</h1>
+              <div className='row'>
+                <h1 className='offset-md-2 mx-auto'>Edit {data.place.name}</h1>
+              </div>
+                  
                
                 <form  action={`/places/${data.id}?_method=PUT`} method='POST'>
                 
