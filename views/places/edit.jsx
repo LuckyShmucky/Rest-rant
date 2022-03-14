@@ -20,11 +20,12 @@ function editForm (data) {
                        required />
                 </div>
                 <div className="form-group col-sm-6 px-5">
-                    <label htmlFor="pic">Place Picture</label>
+                    <label htmlFor="pic">Change Picture</label>
                     <input className="form-control " 
                     id="pic" 
                     type='text' 
-                    name="pic" />
+                    name="pic"
+                    value={data.place.pic} />
                 </div>
 
                             </div>
@@ -36,14 +37,16 @@ function editForm (data) {
                     <input className="form-control"
                      id="city"
                      type="text"
-                     name="city" />
+                     name="city" 
+                     value={data.place.city}/>
                 </div>
                 <div className="form-group col-sm-6 px-5">
                     <label htmlFor="state">State</label>
                     <input className="form-control" 
                     id="state" 
                     name="state" 
-                    type='text' />
+                    type='text'
+                    value={data.place.state} />
 
                 </div>
                 <div className="form-group w-100 px-5">
@@ -51,7 +54,9 @@ function editForm (data) {
                     <input className="form-control " 
                      id="cuisines"
                      name="cuisines" 
-                     type='text' required />
+                     type='text'
+                     value={data.place.cuisines}
+                     required />
                 </div>
                      </div>
                
