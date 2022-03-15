@@ -41,3 +41,4 @@ As a reviewer I need a feature to post reviews so I can
 
 
 **TRY TO RESIZE IMAGES TO 420 BY 560 PXLS**
+**On the Second branch I am trying to workout a way to map out each cuisine as an li**
