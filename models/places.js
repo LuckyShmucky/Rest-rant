@@ -2,7 +2,7 @@ module.exports = [{
     name: 'In and Out',
     city: 'San Diego',
     state: 'CA',
-    cuisines: 'Burgers and Fries',
+    cuisines: 'Burgers, Fries',
     pic: '/images/InO.jpg'
   }, {
     name: 'Coding Cake Cafe',
