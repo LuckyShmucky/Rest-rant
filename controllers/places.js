@@ -98,7 +98,7 @@ router.put('/:id', (req, res) => {
       if (!req.body.state) {
           req.body.state = 'USA'
       }
-
+      console.log(req.body)
       // Save the new data into places[id]
       places[id] = req.body
       res.redirect(`/places/${id}`)

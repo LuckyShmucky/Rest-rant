@@ -2,6 +2,7 @@ const React = require('react')
 const Def = require('../default.jsx')
 
 function editForm (data, {index}) {
+    console.log((data.place.cuisines).join(','))
     return (
         <Def>
             <head>
@@ -61,7 +62,7 @@ function editForm (data, {index}) {
                      id="cuisines"
                      name="cuisines" 
                      type='text'
-                     value={ data.place.cuisines.map(cuisines => <li key={index}>{cuisines}</li>)}
+                     defaultValue={data.place.cuisines}
                      required />
                 </div>
                      </div>
