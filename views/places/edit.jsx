@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default.jsx')
 
-function editForm (data) {
+function editForm (data, {index}) {
     return (
         <Def>
             <head>
@@ -61,7 +61,7 @@ function editForm (data) {
                      id="cuisines"
                      name="cuisines" 
                      type='text'
-                     value={data.place.cuisines}
+                     value={ data.place.cuisines.map(cuisines => <li key={index}>{cuisines}</li>)}
                      required />
                 </div>
                      </div>

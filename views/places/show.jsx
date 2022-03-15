@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default')
 
-function show (data) {
+function show (data, {index}) {
     // let placesFormatted = data.places.map((place, index)) =>\
     // console.log(data)
     console.log(data)
@@ -12,7 +12,11 @@ function show (data) {
             <h2>Rating</h2>
             <p>Not Rated</p>
             <h2>Description</h2>
-            <p>Located in {data.place.city}, {data.place.state} and is serving {data.place.cuisines}  </p>
+            <p>Located in {data.place.city}, {data.place.state}</p>
+            <h3>Menu</h3>
+            <ul>
+            {data.place.cuisines.map(cuisines =><li key={index}>{cuisines}</li>)}
+            </ul>
             <img src={data.place.pic} alt={data.place.name} />
        
             <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
