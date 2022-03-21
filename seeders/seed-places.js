@@ -12,7 +12,7 @@ let seedData = [{
     city: 'Phoenix',
     state: 'AZ',
     cuisines: 'Coffee, Bakery',
-    pic: '/images/coffee-cat.jpg',
+    pic: '/images/InO.jpg',
     founded: 2020
 }]
 // .then(() =>{

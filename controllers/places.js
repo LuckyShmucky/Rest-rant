@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 
 //this path allows us to add the seed data (still not made yet)
 router.get('/data/seed', (req, res) =>{
-  // res.send(Place.insertMany(seedData))
+   res.send(Place.insertMany(seedData) + "Place.insertMany(seedData)")
   Place.insertMany(seedData)
 })
 
