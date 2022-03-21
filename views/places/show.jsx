@@ -4,7 +4,7 @@ const Def = require('../default')
 function show (data) {
     // let placesFormatted = data.places.map((place, index)) =>\
     // console.log(data)
-    console.log(data)
+    // console.log(data)
     return (
         <Def>
            <main>

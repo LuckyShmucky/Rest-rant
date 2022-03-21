@@ -1,8 +1,9 @@
 const express = require('express')
 const { append } = require('express/lib/response')
 const router = express.Router()
-const places = require('../models/places.js')
+// const places = require('../models/places.js')
 const Place = require('../models/index.js')
+const seedData = require('../seeders/seed-places.js')
 
 // router.use(express.json())
 //Display root places 
@@ -33,6 +34,14 @@ router.get('/:id', (req, res) => {
   })
 })
 
+
+//this path allows us to add the seed data (still not made yet)
+router.get('/data/seed', (req, res) =>{
+  // res.send(Place.insertMany(seedData))
+  Place.insertMany(seedData)
+})
+
+
   //CREATE
 router.post('/', (req, res) => {
   Place.create(req.body)
@@ -47,7 +56,10 @@ router.post('/', (req, res) => {
 
   //DELETE 
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+   Place.findByIdAndDelete(req.params.id)
+   .then(deletedBread =>{
+     res.status(303).redirect('/places')
+   })
 })
 
 // router.get('/:id/edit', (req, res) => {
@@ -68,9 +80,9 @@ router.put('/:id', (req, res) => {
   res.send("PUT /places/:id stub")
 })
 
-
+//directs user to edit page
 router.get('/:id/edit', (req, res) => {
- res.send(' GET edit form stub')
+ res.send('PUT /places/id stub')
 })
 
 router.post('/:id/rant', (req, res)=>{
