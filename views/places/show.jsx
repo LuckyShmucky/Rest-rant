@@ -38,9 +38,8 @@ function show ({place}) {
             <p>Located in {place.city}, {place.state} and is serving {place.cuisines}  </p>
             <img src={place.pic} alt={place.name} />
        
-            <a href={`/places/${place.id}/edit`} className="btn btn-warning"> 
-  Edit
-</a>  
+            <a href={`/places/${place.id}/edit`} className="btn btn-warning">Edit</a>  
+            <a href={`/places/${place.id}/newComment`} className="btn btn-warning">Comment</a>
 <form method='POST' action={`/places/${place.id}?_method=DELETE`}> 
   <button type="submit" className="btn btn-danger">
     Delete

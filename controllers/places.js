@@ -54,6 +54,15 @@ router.get('/:id', (req, res) => {
   })
 })
 
+//Display newComment form
+router.get('/:id/newComment', async (req, res)=> {
+ const foundPlace = await Place.findById(req.params.id)
+ res.render('places/new-comment', {
+   place: foundPlace
+ })
+ 
+})
+
 
 //this path allows us to add the seed data (still not made yet)
 router.get('/data/seed', (req, res) =>{
@@ -72,6 +81,23 @@ router.post('/', (req, res) => {
     console.log(err)
     res.render('error404')
   })
+})
+
+
+////posting a new rant to a place 
+router.post('/:id', async (req, res) =>{
+  if(req.body.rant === 'on'){
+    req.body.rant = true
+  } else {
+    req.body.rant = false
+  }
+  console.log(req.body)
+  const comment = await Place.Comment.create(req.body)
+ let thisPlace = await Place.findById(req.params.id)
+thisPlace.comments.push(comment.id)
+await thisPlace.save()
+ res.redirect(`/places/${req.params.id}`)
+
 })
 
 
