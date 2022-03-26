@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default.jsx')
 
-function editForm (data) {
+function edit ({ place }) {
     return (
         <Def>
             <head>
@@ -9,11 +9,11 @@ function editForm (data) {
             </head>
           <main>
               <div className='row'>
-                <h1 className='offset-md-2 mx-auto'>Edit {data.place.name}</h1>
+                <h1 className='offset-md-2 mx-auto'>Edit {place.name}</h1>
               </div>
                   
                
-                <form  action={`/places/${data.id}?_method=PUT`} method='POST'>
+                <form  action={`/places/${place.id}?_method=PUT`} method='POST'>
                 
                             <div className='row'>
                 
@@ -22,7 +22,7 @@ function editForm (data) {
                     <input className="form-control" type='text'
                      id="name"
                       name="name"
-                      value={data.place.name}
+                      value={place.name}
                        required />
                 </div>
                 <div className="form-group col-sm-6 px-5">
@@ -31,7 +31,7 @@ function editForm (data) {
                     id="pic" 
                     type='text' 
                     name="pic"
-                    value={data.place.pic} />
+                    value={place.pic} />
                 </div>
 
                             </div>
@@ -44,7 +44,7 @@ function editForm (data) {
                      id="city"
                      type="text"
                      name="city" 
-                     value={data.place.city}/>
+                     value={place.city}/>
                 </div>
                 <div className="form-group col-sm-6 px-5">
                     <label htmlFor="state">State</label>
@@ -52,7 +52,7 @@ function editForm (data) {
                     id="state" 
                     name="state" 
                     type='text'
-                    value={data.place.state} />
+                    value={place.state} />
 
                 </div>
                 <div className="form-group w-100 px-5">
@@ -61,7 +61,7 @@ function editForm (data) {
                      id="cuisines"
                      name="cuisines" 
                      type='text'
-                     value={data.place.cuisines}
+                     value={place.cuisines}
                      required />
                 </div>
                      </div>
@@ -81,4 +81,4 @@ function editForm (data) {
     )
 }
 
-module.exports = editForm
+module.exports = edit

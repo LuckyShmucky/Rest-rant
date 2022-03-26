@@ -1,21 +1,37 @@
 const express = require('express')
+const req = require('express/lib/request')
 const { append } = require('express/lib/response')
 const router = express.Router()
 // const places = require('../models/places.js')
 const Place = require('../models/index.js')
 const seedData = require('../seeders/seed-places.js')
+const seedComment = require('../seeders/seed-comments.js')
 
 // router.use(express.json())
 //Display root places 
 router.get('/', (req, res) => {
   Place.find()
-    .then((places) =>{
-      res.render('places/index', {places})
+    .then((foundPlaces) =>{
+      res.render('places/index', {places: foundPlaces})
     })
     .catch(err => {
       console.log(err)
       res.render('error404')
     })
+})
+////creating seed comments route
+router.get('/seed-comments', async (req, res) =>{
+  const thisPlace = await Place.findOne({name: "Chum Bucket"})
+  const comment = await Place.Comment.create({
+    author: "Mr.Krabs",
+    rant: false, 
+    stars: 5.0,
+    content: "You'll never get me secret formula!"
+  })
+  thisPlace.comments.push(comment.id)
+  await thisPlace.save()
+  res.redirect('/places')
+  // process.exit()
 })
 
 router.get('/new', (req,res)=>{
@@ -25,8 +41,12 @@ router.get('/new', (req,res)=>{
 //SHOW or Display
 router.get('/:id', (req, res) => {
   Place.findById(req.params.id)
-  .then(place => {
-      res.render('places/show', { place })
+  .populate('comments')
+  .then(foundPlace => {
+    console.log(foundPlace)
+      res.render('places/show',  {
+        place: foundPlace 
+      })
   })
   .catch(err => {
       console.log('err', err)
@@ -54,6 +74,7 @@ router.post('/', (req, res) => {
   })
 })
 
+
   //DELETE 
 router.delete('/:id', (req, res) => {
    Place.findByIdAndDelete(req.params.id)
@@ -77,12 +98,21 @@ router.delete('/:id', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-  res.send("PUT /places/:id stub")
+  Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(updatedPlace => {
+    console.log(updatedPlace)
+    res.redirect(`/places/${req.params.id}`)
+  })
 })
 
 //directs user to edit page
 router.get('/:id/edit', (req, res) => {
- res.send('PUT /places/id stub')
+ Place.findById(req.params.id)
+ .then(foundPlace =>{
+   res.render('places/edit', {
+     place: foundPlace
+   })
+ })
 })
 
 router.post('/:id/rant', (req, res)=>{
