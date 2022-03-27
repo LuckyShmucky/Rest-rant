@@ -25,12 +25,30 @@ function show ({place}) {
         )
       }) 
     }
+
+
+    let rating = (
+      <h3 className='inactive'>
+        Not yet rated
+      </h3>
+    )
+
+    if (place.comments.reduce){
+      let sumRatings = place.comments.reduce((tot, c) =>{
+        return tot + c.stars
+      }, 0)
+      let averageRating = sumRatings / place.comments.length
+    rating = (
+      <h3>{Math.round(averageRating)} stars</h3>
+    )  
+      
+    }
     return (
         <Def>
            <main>
             <h1>{place.name}</h1>
             <h2>Rating</h2>
-            <p>Not Rated</p>
+            <p>{rating}</p>
             <h2>Comments</h2>
             {comments}
             <h2>Description</h2>
