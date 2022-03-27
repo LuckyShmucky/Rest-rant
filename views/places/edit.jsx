@@ -36,38 +36,49 @@ function edit ({ place }) {
 
                             </div>
               
-                            <div className='row'>
+                            <div className=''>
 
-                <div className="form-group col-sm-6 px-5">
-                    <label htmlFor="city">City</label>
-                    <input className="form-control"
-                     id="city"
-                     type="text"
-                     name="city" 
-                     value={place.city}/>
+                <div className='row'>
+                    <div className="form-group col-sm-6 px-5">
+                        <label htmlFor="city">City</label>
+                        <input className="form-control"
+                         id="city"
+                         type="text"
+                         name="city"
+                         value={place.city}/>
+                    </div>
+                    <div className="form-group col-sm-6 px-5">
+                        <label htmlFor="state">State</label>
+                        <input className="form-control"
+                        id="state"
+                        name="state"
+                        type='text'
+                        value={place.state} />
+                    </div>
                 </div>
-                <div className="form-group col-sm-6 px-5">
-                    <label htmlFor="state">State</label>
-                    <input className="form-control" 
-                    id="state" 
-                    name="state" 
-                    type='text'
-                    value={place.state} />
-
+                
+                <div className='row'>
+                    <div className="form-group col-sm-6 px-5">
+                        <label htmlFor="cuisines">Cuisines</label>
+                        <input className="form-control "
+                         id="cuisines"
+                         name="cuisines"
+                         type='text'
+                         value={place.cuisines}
+                         required />
+                    </div>
+                        <div className='form-group col-sm-6 px-5'>
+                        <label htmlFor='founded'>Founded</label>
+                        <input className='form-control'
+                        id='founded'
+                        name='founded'
+                        value={place.founded}></input>
+                        </div>
+                        </div>
                 </div>
-                <div className="form-group w-100 px-5">
-                    <label htmlFor="cuisines">Cuisines</label>
-                    <input className="form-control " 
-                     id="cuisines"
-                     name="cuisines" 
-                     type='text'
-                     value={place.cuisines}
-                     required />
-                </div>
-                     </div>
                
                      <div className='row'>
-                <input className="btn btn-primary offset-md-2 mx-auto "  type="submit" value="Add Place" />
+                <input className="btn btn-primary offset-md-2 mx-auto "  type="submit" value="Update Place" />
                      </div>
                
                 </form>
