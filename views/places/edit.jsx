@@ -17,7 +17,7 @@ function edit ({ place }) {
                 
                             <div className='row'>
                 
-                <div className="form-group col-sm-6 px-5">
+                <div className="form-group ">
                     <label htmlFor="name">Change Name</label>
                     <input className="form-control" type='text'
                      id="name"

@@ -50,3 +50,35 @@ nav a:hover {
     color: pink;
     text-decoration: none;
 }
+
+#rant{
+    position: relative;
+    right: 49%;
+}
+
+#rantLabel{
+    position: relative;
+    right: .65%;
+}
+
+#editBttn{
+    position: fixed;
+    top: 71.15%;
+    left: 10.85%;
+    display: inline;
+
+}
+
+#commentBttn{
+    position: fixed;
+    top: 71.15%;
+    left: 6%;
+    display: inline;
+}
+
+img{
+    /* margin-top: 1px;
+    margin-bottom: 1px; */
+    padding-top: 6px;
+    padding-bottom: 6px;
+}

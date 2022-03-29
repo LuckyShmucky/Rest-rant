@@ -4,7 +4,7 @@ const Def = require('./default')
 function home () {
     return (
       <Def>
-          <main>
+          <main className='px-5'>
               <h1>REST-Rant</h1>
               <div>
                 <img src="/images/resizedCake.jpg" alt="A slice of cake with raspberries" />
@@ -12,6 +12,9 @@ function home () {
                     Photo by <a href="https://unsplash.com/@anna_tukhfatullina">Anna Tukhfatullina</a>
                     </div>            
               </div>
+              <p>This is a site where you can either complain (Rant) or compliment
+               (Rave) a restaurant! 
+              </p>
               <a href="/places">
                 <button className="btn-primary">Places Page</button>
               </a>

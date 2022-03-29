@@ -27,7 +27,7 @@ function index (data) {
         <head>
           <link rel="stylesheet" href="../../index.css" />
         </head>
-          <main>
+          <main className='px-5'>
               <h1>Places to Rant or Rave About</h1>
               {placesFormatted}
               <a href="/">

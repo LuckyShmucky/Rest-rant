@@ -5,7 +5,7 @@ function Newform(){
 
     return(
         <Def>
-            <main>
+            <main className='px-5'>
                 <h1>Add A new Place</h1>
                
                 <form  action="/places" method='POST'>
@@ -49,7 +49,7 @@ function Newform(){
                 <div className="form-group">
                     <label for="founded">Founded Year</label>
                     <input 
-                    className="form-control" 
+                    className="form-control w-25" 
                     id="founded" 
                     name="founded"
                     type='number'
