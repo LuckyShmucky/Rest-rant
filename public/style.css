@@ -61,19 +61,10 @@ nav a:hover {
     right: .65%;
 }
 
-#editBttn{
-    position: fixed;
-    top: 71.15%;
-    left: 10.85%;
-    display: inline;
-
-}
-
-#commentBttn{
-    position: fixed;
-    top: 71.15%;
-    left: 6%;
-    display: inline;
+#bttnsDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
 }
 
 img{

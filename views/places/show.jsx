@@ -63,19 +63,21 @@ function show ({place}) {
             <p>Located in {place.city}, {place.state} and is serving {place.cuisines}  </p>
             <img src={place.pic} alt={place.name} />
        
-            <div id='editBttn'>
-              <a href={`/places/${place.id}/edit`}  className="btn btn-warning">Edit</a>  
+            <div id='bttnsDiv'>
+              <div id='editBttn'>
+                <a href={`/places/${place.id}/edit`}  className="btn btn-warning">Edit</a>
+              </div>
+              
+              <div id='commentBttn'>
+                <a href={`/places/${place.id}/newComment`}  className="btn btn-warning">Comment</a>
+              </div>
+              
+              <form method='POST' action={`/places/${place.id}?_method=DELETE`}> 
+                <button type="submit" className="btn btn-danger">
+                  Delete
+                </button>
+              </form>
             </div>
-            
-            <div id='commentBttn'>
-              <a href={`/places/${place.id}/newComment`}  className="btn btn-warning">Comment</a>
-            </div>
-
-<form method='POST' action={`/places/${place.id}?_method=DELETE`}> 
-  <button type="submit" className="btn btn-danger">
-    Delete
-  </button>
-</form>     
 
 
           </main> 
