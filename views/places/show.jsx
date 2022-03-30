@@ -26,7 +26,8 @@ function show ({place}) {
       }) 
     }
 
-
+    
+    
     let rating = (
       <h3 className='inactive'>
         Not yet rated
@@ -45,7 +46,7 @@ function show ({place}) {
       }
       rating = (
         <h3>
-          {stars} stars
+          {stars} 
         </h3>
       )
     }

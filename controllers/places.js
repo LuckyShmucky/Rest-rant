@@ -109,20 +109,6 @@ router.delete('/:id', (req, res) => {
    })
 })
 
-// router.get('/:id/edit', (req, res) => {
-//   let id = Number(req.params.id)
-//   if (isNaN(id)) {
-//       res.render('error404')
-//   }
-//   else if (!places[id]) {
-//       res.render('error404')
-//   }
-//   else {
-//     res.render('places/edit', { place: places[id], id })
-//   }
-// })
-
-
 router.put('/:id', (req, res) => {
   Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(updatedPlace => {
@@ -141,13 +127,13 @@ router.get('/:id/edit', (req, res) => {
  })
 })
 
-router.post('/:id/rant', (req, res)=>{
-  res.send("GET /places/:id/rant stub")
-})
+// router.post('/:id/rant', (req, res)=>{
+//   res.send("GET /places/:id/rant stub")
+// })
 
-router.delete('/:id/rant/:rantId', (req, res)=>{
-  res.send('GET /places/:id/rant/:rantId stub')
-})
+// router.delete('/:id/rant/:rantId', (req, res)=>{
+//   res.send('GET /places/:id/rant/:rantId stub')
+// })
 
 
 
