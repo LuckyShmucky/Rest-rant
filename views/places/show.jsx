@@ -34,7 +34,7 @@ function show ({place}) {
       </h3>
     )
 
-    if (place.comments.reduce){
+    if (place.comments.length){
       let sumRatings = place.comments.reduce((tot, c) =>{
         return tot + c.stars
       }, 0)
